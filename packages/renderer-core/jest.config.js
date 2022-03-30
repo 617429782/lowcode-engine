@@ -1,29 +1,15 @@
-const esModules = [
-  '@recore/obx-react',
-  '@alilc/lowcode-datasource-engine',
-].join('|');
-
 module.exports = {
-  transform: {
-    '^.+\\.(ts|tsx)$': 'ts-jest',
-    '^.+\\.(js|ts|tsx|jsx)$': 'babel-jest',
-    '^.+\\.(css|less|scss)$': './test/mock/styleMock.js',
-  },
-  // testMatch: ['**/bugs/*.test.ts'],
+  // transform: {
+  //   '^.+\\.[jt]sx?$': 'babel-jest',
+  //   // '^.+\\.(ts|tsx)$': 'ts-jest',
+  //   // '^.+\\.(js|jsx)$': 'babel-jest',
+  // },
   // testMatch: ['(/tests?/.*(test))\\.[jt]s$'],
-  // transformIgnorePatterns: [
-  //   `/node_modules/(?!${esModules})/`,
-  // ],
-  testEnvironment: 'jsdom',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
-  collectCoverage: false,
+  collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
-  ],
-  moduleNameMapper: {
-    '^.+.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
-  },
-  setupFilesAfterEnv: [
-    './test/setup.ts',
+    '!**/node_modules/**',
+    '!**/vendor/**',
   ],
 };
